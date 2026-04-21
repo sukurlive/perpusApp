@@ -15,7 +15,7 @@ const FavoriteScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={true}>
         <View style={styles.header}>
-          <Text style={styles.headerIcon}>⭐</Text>
+          <Text style={styles.headerIcon}></Text>
           <Text style={styles.headerTitle}>Buku Favorit Saya</Text>
           <Text style={styles.headerSubtitle}>{favorites.length} Buku yang paling saya suka</Text>
         </View>
@@ -23,13 +23,13 @@ const FavoriteScreen = () => {
         {favorites.map(book => (
           <View key={book.id} style={styles.card}>
             <View style={styles.starIcon}>
-              <Text style={styles.star}>⭐</Text>
+              <Text style={styles.star}></Text>
             </View>
             <View style={styles.cardContent}>
               <Text style={styles.title}>{book.title}</Text>
-              <Text style={styles.author}>✍️ {book.author}</Text>
+              <Text style={styles.author}>{book.author}</Text>
               <View style={styles.reasonContainer}>
-                <Text style={styles.reasonLabel}>💡 Alasan:</Text>
+                <Text style={styles.reasonLabel}>Alasan:</Text>
                 <Text style={styles.reason}>{book.reason}</Text>
               </View>
             </View>
