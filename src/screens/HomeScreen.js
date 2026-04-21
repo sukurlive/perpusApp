@@ -17,7 +17,7 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={true}>
         <View style={styles.header}>
-          <Text style={styles.headerIcon}>📚</Text>
+          <Text style={styles.headerIcon}></Text>
           <Text style={styles.headerTitle}>Perpustakaan Digital</Text>
           <Text style={styles.headerSubtitle}>Total {books.length} Buku Tersedia</Text>
         </View>
@@ -25,12 +25,12 @@ const HomeScreen = () => {
         {books.map(book => (
           <View key={book.id} style={styles.card}>
             <View style={styles.cardIcon}>
-              <Text style={styles.bookIcon}>📖</Text>
+              <Text style={styles.bookIcon}></Text>
             </View>
             <View style={styles.cardContent}>
               <Text style={styles.title}>{book.title}</Text>
-              <Text style={styles.author}>✍️ {book.author}</Text>
-              <Text style={styles.year}>📅 {book.year}</Text>
+              <Text style={styles.author}>{book.author}</Text>
+              <Text style={styles.year}>{book.year}</Text>
             </View>
           </View>
         ))}
