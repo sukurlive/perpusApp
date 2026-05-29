@@ -1,4 +1,5 @@
 import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import { MaterialIcons } from '@react-native-vector-icons/material-icons';
 
 const favorites = [
   { id: 1, title: 'Atomic Habits', author: 'James Clear', reason: 'Membangun kebiasaan baik' },
@@ -14,7 +15,7 @@ export default function FavoriteScreen() {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={true}>
         <View style={styles.header}>
-          <Text style={styles.headerIcon}></Text>
+          <MaterialIcons name="favorite" size={50} color="white" />
           <Text style={styles.headerTitle}>Buku Favorit Saya</Text>
           <Text style={styles.headerSubtitle}>{favorites.length} Buku yang paling saya suka</Text>
         </View>
@@ -22,11 +23,11 @@ export default function FavoriteScreen() {
         {favorites.map(book => (
           <View key={book.id} style={styles.card}>
             <View style={styles.starIcon}>
-              <Text style={styles.star}></Text>
+              <MaterialIcons name="star" size={30} color="#ff9800" />
             </View>
             <View style={styles.cardContent}>
               <Text style={styles.title}>{book.title}</Text>
-              <Text style={styles.author}>{book.author}</Text>
+              <Text style={styles.author}>✍️ {book.author}</Text>
               <View style={styles.reasonContainer}>
                 <Text style={styles.reasonLabel}>Alasan:</Text>
                 <Text style={styles.reason}>{book.reason}</Text>
@@ -43,12 +44,10 @@ const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#fff9f0' },
   container: { flex: 1, padding: 16 },
   header: { backgroundColor: '#ff9800', borderRadius: 15, padding: 20, marginBottom: 20, alignItems: 'center' },
-  headerIcon: { fontSize: 45, marginBottom: 8 },
-  headerTitle: { fontSize: 24, fontWeight: 'bold', color: 'white' },
+  headerTitle: { fontSize: 24, fontWeight: 'bold', color: 'white', marginTop: 8 },
   headerSubtitle: { fontSize: 14, color: '#fff0d0', marginTop: 5 },
   card: { flexDirection: 'row', backgroundColor: 'white', borderRadius: 12, padding: 15, marginBottom: 12, elevation: 3, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, shadowRadius: 4, borderLeftWidth: 4, borderLeftColor: '#ff9800' },
   starIcon: { marginRight: 15, justifyContent: 'center' },
-  star: { fontSize: 30 },
   cardContent: { flex: 1 },
   title: { fontSize: 16, fontWeight: 'bold', color: '#333', marginBottom: 4 },
   author: { fontSize: 14, color: '#666', marginBottom: 8 },

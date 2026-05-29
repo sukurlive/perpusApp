@@ -1,4 +1,5 @@
 import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import { MaterialIcons } from '@react-native-vector-icons/material-icons';
 
 const books = [
   { id: 1, title: 'React Native in Action', author: 'Nader Dabit', year: 2019 },
@@ -16,7 +17,7 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={true}>
         <View style={styles.header}>
-          <Text style={styles.headerIcon}></Text>
+          <MaterialIcons name="menu-book" size={50} color="white" />
           <Text style={styles.headerTitle}>Perpustakaan Digital</Text>
           <Text style={styles.headerSubtitle}>Total {books.length} Buku Tersedia</Text>
         </View>
@@ -24,7 +25,7 @@ export default function HomeScreen() {
         {books.map(book => (
           <View key={book.id} style={styles.card}>
             <View style={styles.cardIcon}>
-              <Text style={styles.bookIcon}></Text>
+              <MaterialIcons name="book" size={40} color="#4a90e2" />
             </View>
             <View style={styles.cardContent}>
               <Text style={styles.title}>{book.title}</Text>
@@ -42,12 +43,10 @@ const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#f0f4f8' },
   container: { flex: 1, padding: 16 },
   header: { backgroundColor: '#4a90e2', borderRadius: 15, padding: 20, marginBottom: 20, alignItems: 'center' },
-  headerIcon: { fontSize: 40, marginBottom: 8 },
-  headerTitle: { fontSize: 24, fontWeight: 'bold', color: 'white' },
+  headerTitle: { fontSize: 24, fontWeight: 'bold', color: 'white', marginTop: 8 },
   headerSubtitle: { fontSize: 14, color: '#e0e0e0', marginTop: 5 },
   card: { flexDirection: 'row', backgroundColor: 'white', borderRadius: 12, padding: 15, marginBottom: 12, elevation: 3, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, shadowRadius: 4 },
   cardIcon: { marginRight: 15, justifyContent: 'center' },
-  bookIcon: { fontSize: 40 },
   cardContent: { flex: 1 },
   title: { fontSize: 16, fontWeight: 'bold', color: '#333', marginBottom: 4 },
   author: { fontSize: 14, color: '#666', marginBottom: 2 },
