@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialIcons } from '@react-native-vector-icons/material-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import HomeScreen from './src/screens/HomeScreen';
 import FavoriteScreen from './src/screens/FavoriteScreen';
 import BooksOpenLibrary from './src/screens/BooksOpenLibrary';

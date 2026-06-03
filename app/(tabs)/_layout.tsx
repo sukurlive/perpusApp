@@ -1,67 +1,96 @@
-import { Tabs } from "expo-router";
-import { MaterialIcons } from '@react-native-vector-icons/material-icons';
+import { Tabs } from 'expo-router';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Platform } from 'react-native';
 
 export default function TabLayout() {
   return (
     <Tabs
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-
-          switch (route.name) {
-            case 'index':
-              iconName = focused ? 'menu-book' : 'menu-book';
-              break;
-            case 'favorite':
-              iconName = focused ? 'favorite' : 'favorite-border';
-              break;
-            case 'explore':
-              iconName = focused ? 'search' : 'search';
-              break;
-            default:
-              iconName = 'help';
-          }
-
-          return <MaterialIcons name={iconName} size={size} color={color} />;
+      screenOptions={{
+        headerShown: true,
+        headerStyle: { 
+          backgroundColor: '#4a90e2',
+          elevation: 0, 
+          shadowOpacity: 0,
+          borderBottomWidth: 0,
+        },
+        headerTintColor: '#ffffff',
+        headerTitleStyle: { 
+          fontWeight: 'bold', 
+          fontSize: 18 
+        },
+        tabBarStyle: { 
+          backgroundColor: '#ffffff',
+          height: Platform.OS === 'ios' ? 85 : 65,
+          paddingBottom: Platform.OS === 'ios' ? 25 : 10,
+          paddingTop: 8,
+          borderTopWidth: 0,
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: -2 },
+          shadowOpacity: 0.08,
+          shadowRadius: 8,
+          elevation: 8,
         },
         tabBarActiveTintColor: '#4a90e2',
         tabBarInactiveTintColor: '#999999',
-        tabBarStyle: {
-          backgroundColor: '#ffffff',
-          borderTopWidth: 1,
-          borderTopColor: '#e0e0e0',
-          height: 60,
-          paddingBottom: 8,
-          paddingTop: 8,
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '500',
         },
-        headerStyle: {
-          backgroundColor: '#4a90e2',
-        },
-        headerTintColor: '#ffffff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      })}
+      }}
     >
       <Tabs.Screen 
         name="index" 
         options={{ 
-          title: "Perpustakaan",
-          tabBarLabel: "Perpustakaan"
+          title: "Perpustakaan Digital",
+          tabBarLabel: "Perpustakaan",
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialIcons 
+              name={focused ? "menu-book" : "menu-book"} 
+              size={size} 
+              color={color} 
+            />
+          ),
         }} 
       />
       <Tabs.Screen 
         name="favorite" 
         options={{ 
-          title: "Favorit",
-          tabBarLabel: "Favorit"
+          title: "Buku Favorit",
+          tabBarLabel: "Favorit",
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialIcons 
+              name={focused ? "favorite" : "favorite-border"} 
+              size={size} 
+              color={color} 
+            />
+          ),
         }} 
       />
       <Tabs.Screen 
         name="explore" 
         options={{ 
-          title: "Cari Buku",
-          tabBarLabel: "Cari Buku"
+          title: "Cari Buku Online",
+          tabBarLabel: "Cari Buku",
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialIcons 
+              name={focused ? "search" : "search"} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }} 
+      />
+      <Tabs.Screen 
+        name="detail" 
+        options={{ 
+          href: null,
+          title: "Detail Buku",
         }} 
       />
     </Tabs>
